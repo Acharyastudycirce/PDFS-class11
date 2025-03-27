@@ -39,6 +39,60 @@
     <meta property="og:url" content="ACHARYA STUDY CIRCLE.in" />
     <meta property="og:site_name" content="ACHARYA STUDY CIRCLE" />
     <!-- SEO : ENDs -->
+    <style>
+      /* Floating Emojis */
+      <head>
+    <!-- Existing meta tags remain same -->
+    
+    <!-- Add animate.css and custom styles -->
+    <style>
+      /* Floating Emojis */
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) translateX(-10vw);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) translateX(10vw);
+          opacity: 0;
+        }
+      }
+
+      .emoji-float {
+        position: fixed;
+        pointer-events: none;
+        animation: float linear forwards;
+        font-size: 24px;
+        z-index: 9999;
+      }
+
+      /* Feature Card Animations */
+      .featured-item.style-2 {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(0);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .featured-item.style-2:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Header Animation */
+      .navbar-brand.logo {
+        transition: transform 0.3s ease;
+      }
+
+      .navbar-brand.logo:hover {
+        transform: rotate(-5deg) scale(1.05);
+      }
+
+      /* Mouse Parallax Effect */
+      .mouse-parallax {
+        transition: transform 0.3s ease-out;
+      }
+    </style>
+  </head>
 
     <!-- Title -->
     <title>ACHARYA STUDY CIRCLE</title>
@@ -90,6 +144,7 @@
     <link href="css/responsive.css" rel="stylesheet" type="text/css" />
 
     <!-- inject css end -->
+     
 
     <script
       async
@@ -112,6 +167,7 @@
     ></script>
   </head>
 
+       
   <body>
     <!-- page wrapper start -->
 
@@ -140,7 +196,7 @@
             <div class="row">
               <div class="col">
                 <nav class="navbar navbar-expand-lg">
-                  <a class="navbar-brand logo" href="index.html">
+                  <a class="navbar-brand logo" href="https://acharyastudycirce.github.io/ACHARYA-STUDY-CIRCLE/index.html">
                     <img
                       id="logo-img2"
                       class="img-fluid1"
@@ -223,7 +279,7 @@
                       Textbook reading is a great way to gain structured and in-depth knowledge. 
                       Pairing it with practical applications.
                     </p>
-                    <a class="btn btn-theme mt-5" href="#">Learn More</a>
+                    <a class="btn btn-theme mt-5" href="https://acharyastudycirce.github.io/class11-page4-Text-book-/index.html">Learn More</a>
                   </div>
                 </div>
               </div>
@@ -239,7 +295,7 @@
                     <p>
                       Class notes offer concise insights for quick revision. Regular review strengthens understanding and retention.
                     </p>
-                    <a class="btn btn-theme mt-5" href="#">Learn More</a>
+                    <a class="btn btn-theme mt-5" href="https://acharyastudycirce.github.io/Class11-page4-Class-Notes-/index.html">Learn More</a>
                   </div>
                 </div>
               </div>
@@ -256,13 +312,47 @@
                       Study material provides structured content for effective learning. 
                       Regular review enhances understanding and retention.
                     </p>
-                    <a class="btn btn-theme mt-5" href="#">Learn More</a>
+                    <a class="btn btn-theme mt-5" href="https://acharyastudycirce.github.io/Class11-page-4-Study-Material-/index.html">Learn More</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+            <!-- Floating Emojis Script -->
+    <script>
+      function createEmoji() {
+        const emojis = ['📚', '🎓', '✨', '📘', '🎯', '💡', '🌟', '📖'];
+        const emoji = document.createElement('div');
+        emoji.className = 'emoji-float';
+        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.left = Math.random() * 100 + 'vw';
+        emoji.style.animationDuration = Math.random() * 4 + 3 + 's';
+        emoji.style.fontSize = Math.random() * 25 + 20 + 'px';
+        document.body.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 7000);
+      }
+      setInterval(createEmoji, 1500);
+
+      // Initialize Animations
+      new WOW({
+        offset: 100,
+        mobile: true,
+        live: true
+      }).init();
+
+      // Parallax Effect
+      document.addEventListener('mousemove', (e) => {
+        const parallaxElements = document.querySelectorAll('.mouse-parallax');
+        parallaxElements.forEach(element => {
+          const speed = parseFloat(element.getAttribute('data-parallax-speed')) || 0.3;
+          const x = (window.innerWidth - e.pageX * speed) / 100;
+          const y = (window.innerHeight - e.pageY * speed) / 100;
+          element.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      });
+    </script>
+
 
         <!--feature end-->
 
